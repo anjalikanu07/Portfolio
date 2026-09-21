@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Anjali Kanu | Aspiring Web Developer</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f172a;
+    --slate: #475569;
+    --accent: #2563eb;
+    --line: #e2e8f0;
+    --bg-soft: #f8fafc;
+  }
+  body { font-family: 'Inter', sans-serif; color: var(--ink); background: #fff; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+ 
+  .navbar { border-bottom: 1px solid var(--line); background: #fff; }
+  .navbar-brand { font-weight: 700; font-size: 1.05rem; }
+  .navbar-brand .mono { color: var(--accent); display:inline-block; animation: pulseBrand 2.4s ease-in-out infinite; }
+  @keyframes pulseBrand { 0%,100%{transform:scale(1);} 50%{transform:scale(1.15);} }
+  .nav-link { color: var(--slate) !important; font-weight: 500; font-size: 0.92rem; }
+  .nav-link:hover { color: var(--ink) !important; }
+ 
+  .hero { padding: 100px 0 80px; }
+  .hero .tag {
+    display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+    color: var(--accent); background: #eff6ff; border: 1px solid #dbeafe;
+    padding: 5px 12px; border-radius: 20px; margin-bottom: 20px;
+    opacity: 0; animation: fadeDown 0.6s ease forwards;
+  }
+  .hero h1 {
+    font-weight: 700; font-size: 2.9rem; line-height: 1.15; letter-spacing: -0.02em;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.15s;
+  }
+  #typed-role {
+    color: var(--accent); border-right: 2px solid var(--accent); padding-right: 4px;
+    animation: blinkCursor 0.8s step-end infinite;
+  }
+  @keyframes blinkCursor { 50% { border-color: transparent; } }
+  .hero p.lead {
+    color: var(--slate); max-width: 580px; font-size: 1.1rem;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s;
+  }
+  .hero .hero-btns { opacity: 0; animation: fadeUp 0.7s ease forwards 0.45s; }
+  @keyframes fadeDown { from{opacity:0; transform:translateY(-12px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes fadeUp { from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+ 
+  .btn-primary-custom { background: var(--ink); color: #fff; border: none; padding: 10px 22px; font-weight: 500; font-size: 0.92rem; transition: transform 0.15s ease, background 0.15s ease; }
+  .btn-primary-custom:hover { background: #1e293b; color:#fff; transform: translateY(-2px); }
+  .btn-outline-custom { border: 1px solid var(--line); color: var(--ink); padding: 10px 22px; font-weight: 500; font-size: 0.92rem; transition: transform 0.15s ease, background 0.15s ease; }
+  .btn-outline-custom:hover { background: var(--bg-soft); transform: translateY(-2px); }
+ 
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+  section { padding: 70px 0; }
+  section.bordered { border-top: 1px solid var(--line); }
+  h2.section-title { font-weight: 700; font-size: 1.9rem; letter-spacing: -0.01em; margin-bottom: 30px; }
+ 
+  .about-text { color: var(--slate); font-size: 1.02rem; max-width: 720px; }
+ 
+  .skill-pill-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill-pill {
+    border: 1px solid var(--line); background: var(--bg-soft); padding: 7px 14px; border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--ink);
+    display: inline-flex; align-items: center; gap: 7px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .skill-pill i { color: var(--accent); font-size: 0.95rem; }
+  .skill-pill:hover { transform: translateY(-3px); background: #eff6ff; box-shadow: 0 4px 10px rgba(37,99,235,0.15); }
+  .skill-category { font-weight: 600; font-size: 0.95rem; margin: 22px 0 10px; color: var(--ink); }
+  .skill-category:first-child { margin-top: 0; }
+ 
+  .project-card { border: 1px solid var(--line); border-radius: 10px; padding: 26px; height: 100%; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+  .project-card:hover { border-color: #cbd5e1; box-shadow: 0 6px 18px rgba(15,23,42,0.06); }
+  .project-card .icon {
+    width: 40px; height: 40px; border-radius: 8px; background: #eff6ff; color: var(--accent);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 1.1rem;
+    transition: transform 0.2s ease;
+  }
+  .project-card:hover .icon { transform: rotate(-8deg) scale(1.08); }
+  .project-card h5 { font-weight: 600; font-size: 1.05rem; }
+  .project-card p { color: var(--slate); font-size: 0.92rem; }
+  .project-card .stack { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--slate); margin-top: 12px; }
+  .project-card ul { color: var(--slate); font-size: 0.9rem; padding-left: 18px; margin-bottom: 0; }
+  .project-card .date { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); }
+ 
+  .timeline-item { border-left: 2px solid var(--line); padding: 0 0 30px 24px; position: relative; }
+  .timeline-item::before {
+    content: ""; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px;
+    border-radius: 50%; background: var(--accent); animation: dotPulse 2s ease-in-out infinite;
+  }
+  @keyframes dotPulse { 0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,0.35);} 50%{box-shadow:0 0 0 6px rgba(37,99,235,0);} }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-date { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--slate); }
+  .timeline-item h6 { font-weight: 600; margin-top: 4px; }
+  .timeline-item p { color: var(--slate); font-size: 0.92rem; }
+ 
+  .cert-card { border: 1px solid var(--line); border-radius: 10px; padding: 22px; height: 100%; background: #fff; transition: box-shadow 0.15s ease, transform 0.15s ease; }
+  .cert-card:hover { box-shadow: 0 6px 18px rgba(15,23,42,0.06); transform: translateY(-3px); }
+  .cert-card i { color: var(--accent); font-size: 1.1rem; margin-bottom: 10px; }
+  .cert-card h6 { font-weight: 600; margin-bottom: 2px; }
+  .cert-card .org { color: var(--slate); font-size: 0.85rem; }
+  .cert-card .date { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--accent); }
+ 
+  .contact-box { background: var(--ink); color: #fff; border-radius: 14px; padding: 50px; text-align: center; }
+  .contact-box p { color: #cbd5e1; }
+  .contact-box .btn-light-custom { background: #fff; color: var(--ink); padding: 10px 24px; font-weight: 500; font-size: 0.92rem; transition: transform 0.15s ease, background 0.15s ease; }
+  .contact-box .btn-light-custom:hover { background: #e2e8f0; transform: translateY(-2px); }
+  .social-links a { color: #cbd5e1; font-size: 1.2rem; margin: 0 10px; display: inline-block; transition: transform 0.2s ease, color 0.2s ease; }
+  .social-links a:hover { color: #fff; transform: translateY(-3px); }
+ 
+  footer { border-top: 1px solid var(--line); padding: 24px 0; text-align: center; color: var(--slate); font-size: 0.85rem; }
+ 
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+ 
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#"><span class="mono">&lt;/&gt;</span> Anjali Kanu</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="#about"><i class="fa-solid fa-user me-1"></i>About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills"><i class="fa-solid fa-code me-1"></i>Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects"><i class="fa-solid fa-diagram-project me-1"></i>Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education"><i class="fa-solid fa-graduation-cap me-1"></i>Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#achievements"><i class="fa-solid fa-trophy me-1"></i>Achievements</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact"><i class="fa-solid fa-envelope me-1"></i>Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+ 
+<header class="hero">
+  <div class="container">
+    <span class="tag mono">● Open to opportunities</span>
+    <h1>Anjali Kanu<br><span id="typed-role">Aspiring Web Developer</span></h1>
+
+    <p class="lead mt-3 mb-4">
+      B.Sc. Computer Science graduate seeking entry-level opportunities to
+      apply programming, web development, and database skills in a dynamic
+      environment.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary-custom me-2">View Projects</a>
+      <a href="#contact" class="btn btn-outline-custom">Get in Touch</a>
+    </div>
+  </div>
+</header>
+ 
+<section id="about" class="bordered">
+  <div class="container">
+    <div class="section-label" data-aos="fade-up">01 &mdash; ABOUT</div>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">About Me</h2>
+    <p class="about-text" data-aos="fade-up" data-aos-delay="160">
+      I'm a motivated Computer Science graduate with hands-on experience
+      building full-stack web applications and interactive projects. I enjoy
+      turning ideas into working products &mdash; from a 3D interactive game to a
+      full learning platform with quizzes and chatbot support. Recently
+      completed a Python with AI program at Anudip Foundation to strengthen my
+      programming and AI fundamentals, alongside creativity, problem-solving,
+      and teamwork skills honed through national-level sports representation.
+    </p>
+  </div>
+</section>
+ 
+<section id="skills" class="bordered bg-light">
+  <div class="container">
+    <div class="section-label" data-aos="fade-up">02 &mdash; SKILLS</div>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">Technical Skills</h2>
+ 
+    <div class="skill-category" data-aos="fade-up"><i class="fa-solid fa-globe me-2"></i>Web Technologies</div>
+    <div class="skill-pill-group" data-aos="fade-up" data-aos-delay="60">
+      <span class="skill-pill"><i class="fa-brands fa-html5"></i>HTML</span>
+      <span class="skill-pill"><i class="fa-brands fa-css3-alt"></i>CSS</span>
+      <span class="skill-pill"><i class="fa-brands fa-js"></i>JavaScript</span>
+      <span class="skill-pill"><i class="fa-brands fa-bootstrap"></i>Bootstrap</span>
+      <span class="skill-pill"><i class="fa-brands fa-node-js"></i>Node.js</span>
+    </div>
+ 
+    <div class="skill-category" data-aos="fade-up"><i class="fa-solid fa-database me-2"></i>Databases</div>
+    <div class="skill-pill-group" data-aos="fade-up" data-aos-delay="60">
+      <span class="skill-pill"><i class="fa-solid fa-server"></i>MySQL</span>
+      <span class="skill-pill"><i class="fa-solid fa-leaf"></i>MongoDB</span>
+    </div>
+ 
+    <div class="skill-category" data-aos="fade-up"><i class="fa-solid fa-terminal me-2"></i>Programming Languages</div>
+    <div class="skill-pill-group" data-aos="fade-up" data-aos-delay="60">
+      <span class="skill-pill"><i class="fa-brands fa-python"></i>Python</span>
+      <span class="skill-pill"><i class="fa-solid fa-code"></i>SQL</span>
+      <span class="skill-pill"><i class="fa-solid fa-mobile-screen"></i>Kotlin</span>
+    </div>
+ 
+    <div class="skill-category" data-aos="fade-up"><i class="fa-solid fa-toolbox me-2"></i>Tools &amp; Platforms</div>
+    <div class="skill-pill-group" data-aos="fade-up" data-aos-delay="60">
+      <span class="skill-pill"><i class="fa-brands fa-git-alt"></i>Git</span>
+      <span class="skill-pill"><i class="fa-brands fa-github"></i>GitHub</span>
+      <span class="skill-pill"><i class="fa-solid fa-code"></i>VS Code</span>
+      <span class="skill-pill"><i class="fa-solid fa-book"></i>Jupyter Notebook</span>
+      <span class="skill-pill"><i class="fa-brands fa-android"></i>Android Studio</span>
+    </div>
+ 
+    <div class="skill-category" data-aos="fade-up"><i class="fa-solid fa-people-group me-2"></i>Soft Skills</div>
+    <div class="skill-pill-group" data-aos="fade-up" data-aos-delay="60">
+      <span class="skill-pill"><i class="fa-solid fa-palette"></i>Creativity</span>
+      <span class="skill-pill"><i class="fa-solid fa-puzzle-piece"></i>Problem Solving</span>
+      <span class="skill-pill"><i class="fa-solid fa-users"></i>Teamwork</span>
+    </div>
+  </div>
+</section>
+ 
+<section id="projects" class="bordered">
+  <div class="container">
+    <div class="section-label" data-aos="fade-up">03 &mdash; PROJECTS</div>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">Worked on Projects</h2>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="project-card">
+          <div class="icon"><i class="fa-solid fa-cube"></i></div>
+          <div class="date mb-1">Oct 2025</div>
+          <h5>Rubik's Cube Game</h5>
+          <p class="mb-2">An interactive 3D Rubik's Cube web application with realistic cube rotations, solve-time tracking, and step-by-step CFOP learning guidance.</p>
+          <ul>
+            <li>Built realistic 3D cube rotations using Three.js</li>
+            <li>Added solve-timer and step-by-step CFOP method guidance</li>
+            <li>Designed Play, Timer, and Learn modules for an engaging, educational experience</li>
+          </ul>
+          <div class="stack">HTML &middot; CSS &middot; JavaScript &middot; Three.js</div>
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="120">
+        <div class="project-card">
+          <div class="icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="date mb-1">Feb 2026</div>
+          <h5>SkillTrack</h5>
+          <p class="mb-2">A full-stack learning and assessment platform with study materials, online quizzes, and chatbot support.</p>
+          <ul>
+            <li>Built a modular full-stack app with Node.js and MongoDB</li>
+            <li>Integrated study materials, online quizzes, and chatbot assistance</li>
+            <li>Enhanced students' academic development through a unified platform</li>
+          </ul>
+          <div class="stack">HTML &middot; CSS &middot; JavaScript &middot; Node.js &middot; MongoDB</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section id="education" class="bordered bg-light">
+  <div class="container">
+    <div class="section-label" data-aos="fade-up">04 &mdash; EDUCATION</div>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">Education</h2>
+    <div class="timeline-item" data-aos="fade-right">
+      <div class="timeline-date"><i class="fa-solid fa-calendar-days me-1"></i>Jun 2023 &ndash; Mar 2026</div>
+      <h6><i class="fa-solid fa-graduation-cap me-1"></i>B.Sc. Computer Science &mdash; D.G. Ruparel College of Arts, Science &amp; Commerce, Mumbai</h6>
+      <p>CGPA: 7.68</p>
+    </div>
+    <div class="timeline-item" data-aos="fade-right" data-aos-delay="120">
+      <div class="timeline-date"><i class="fa-solid fa-calendar-days me-1"></i>Jun 2021 &ndash; Feb 2023</div>
+      <h6><i class="fa-solid fa-school me-1"></i>Higher Secondary Certificate (Science) &mdash; D.G. Ruparel College, Mumbai</h6>
+      <p>Percentage: 64.67%</p>
+    </div>
+    <div class="timeline-item" data-aos="fade-right" data-aos-delay="240">
+      <div class="timeline-date"><i class="fa-solid fa-calendar-days me-1"></i>Jun 2020 &ndash; Mar 2021</div>
+      <h6><i class="fa-solid fa-book-open me-1"></i>Secondary School Certificate &mdash; Mar Thoma School Maharashtra, Mumbai</h6>
+      <p>Percentage: 80.60%</p>
+    </div>
+ 
+    <div class="row mt-4 pt-3" style="border-top:1px solid var(--line);">
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="skill-category"><i class="fa-solid fa-language me-2"></i>Languages</div>
+        <p class="about-text mb-0">English, Hindi</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section id="achievements" class="bordered">
+  <div class="container">
+    <div class="section-label" data-aos="fade-up">05 &mdash; CERTIFICATIONS &amp; AWARDS</div>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="80">Certifications &amp; Achievements</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="cert-card">
+          <i class="fa-solid fa-certificate"></i>
+          <h6>Python Web Development with AI</h6>
+          <div class="org">Anudip Foundation</div>
+          <div class="date mt-1">Jun 2026</div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="cert-card">
+          <i class="fa-solid fa-robot"></i>
+          <h6>AI for Beginners</h6>
+          <div class="org">Klassroom &middot; Certified by RT-MSSU &amp; Skill India</div>
+          <div class="date mt-1">Jan 2026</div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="240">
+        <div class="cert-card">
+          <i class="fa-solid fa-trophy"></i>
+          <h6>Represented Maharashtra Team (National Level)</h6>
+          <div class="org">Tennis Volleyball Federation of India &middot; Secured 2nd Place</div>
+          <div class="date mt-1">Dec 2023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section id="contact" class="bordered">
+  <div class="container">
+    <div class="contact-box" data-aos="zoom-in">
+      <div class="section-label" style="color:#93c5fd;">06 &mdash; CONTACT</div>
+      <h2 class="section-title" style="color:#fff;">Let's work together</h2>
+      <p>Open to internships, entry-level developer roles, and collaborative projects.</p>
+      <a href="mailto:anjalikanu3009@gmail.com" class="btn btn-light-custom">Email Me</a>
+      <p class="mt-3 mb-0"><i class="fa-solid fa-phone me-2"></i>+91 9821287705</p>
+      <p class="mb-0"><i class="fa-solid fa-location-dot me-2"></i>Mumbai, Maharashtra, India</p>
+      <div class="social-links mt-4">
+        <a href="https://github.com/anjalikanu07" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/anjali-kanu" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:anjalikanu3009@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<footer>
+  &copy; 2026 Anjali Kanu. Built with HTML &amp; Bootstrap.
+</footer>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>
+  AOS.init({ duration: 600, easing: 'ease-out', once: true, offset: 40 });
+ 
+  const roles = ["Aspiring Web Developer", "CS Graduate"];
+  const el = document.getElementById('typed-role');
+  let roleIndex = 0, charIndex = 0, deleting = false;
+ 
+  function typeLoop() {
+    const current = roles[roleIndex];
+    if (!deleting) {
+      charIndex++;
+      el.textContent = current.slice(0, charIndex);
+      if (charIndex === current.length) {
+        deleting = true;
+        setTimeout(typeLoop, 1400);
+        return;
+      }
+    } else {
+      charIndex--;
+      el.textContent = current.slice(0, charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+      }
+    }
+    setTimeout(typeLoop, deleting ? 40 : 70);
+  }
+  el.textContent = "";
+  setTimeout(typeLoop, 500);
+</script>
+ 
+</body>
+</html>
